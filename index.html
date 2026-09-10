@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -419,10 +420,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--txt)
   <button class="btab active" id="tab-ledger" onclick="sw('ledger')"><span class="btab-icon">📒</span>가계부</button>
   <button class="btab" id="tab-budget" onclick="sw('budget')"><span class="btab-icon">📋</span>예산</button>
   <button class="btab" id="tab-fixed" onclick="sw('fixed')"><span class="btab-icon">📌</span>고정비</button>
-  <button class="btab" id="tab-goal" onclick="sw('goal')"><span class="btab-icon">🎯</span>목표</button>
   <button class="btab" id="tab-travel" onclick="sw('travel')"><span class="btab-icon">✈️</span>여행</button>
-  <button class="btab" id="tab-shop" onclick="sw('shop')"><span class="btab-icon">🛍️</span>쇼핑결산</button>
-  <button class="btab" id="tab-idea" onclick="sw('idea')"><span class="btab-icon">💡</span>아이디어</button>
 </div>
 
 <div class="toast" id="toast">저장됨 ✓</div>
@@ -460,9 +458,9 @@ let slideY=0,slideMo=0,slideD=1;
 
 let S={
   expenses:{},fixedExpenses:{},dayBudgets:{},
-  budgets:{약속:451000,식사:61000,카페:71000,식재료:80000,생필품:100000,패션:250000,미용:10000,여가:310000,기타:118400,병원:30000,선물:0},
-  totalBudget:1481400,
-  fixedItems:[{name:'월세+관리비',amt:670000},{name:'교통비',amt:55000},{name:'보험료',amt:95000},{name:'구독비',amt:30000},{name:'경조사비',amt:100000},{name:'청약저축',amt:100000},{name:'적금',amt:500000},{name:'퇴직펀드',amt:400000},{name:'S&P(개인연금)',amt:300000}],
+  budgets:{약속:0,식사:0,카페:0,식재료:0,생필품:0,패션:0,미용:0,여가:0,기타:0,병원:0,선물:0},
+  totalBudget:0,
+  fixedItems:[{name:'월세+관리비',amt:0},{name:'교통비',amt:0},{name:'보험료',amt:0},{name:'구독비',amt:0},{name:'경조사비',amt:0},{name:'청약저축',amt:0},{name:'적금',amt:0},{name:'퇴직펀드',amt:0},{name:'S&P(개인연금)',amt:0}],
   monthlyGoals:{},monthlyIncome:{},monthlyIncomeItems:{},
   assets:[{name:'주식',val:2400000},{name:'ETF',val:570000},{name:'청약저축',val:880000},{name:'적금',val:3600000},{name:'CMA',val:500000}],
   travelExpenses:{},
@@ -643,7 +641,7 @@ document.addEventListener('touchend',e=>{
 function sw(tab){
   activeTab=tab;
   closeDrawer();
-  ['ledger','budget','fixed','goal','travel','shop','idea'].forEach(t=>{
+  ['ledger','budget','fixed','travel'].forEach(t=>{
     document.getElementById('tab-'+t).classList.toggle('active',t===tab);
     document.getElementById('sc-'+t).classList.toggle('active',t===tab);
   });
